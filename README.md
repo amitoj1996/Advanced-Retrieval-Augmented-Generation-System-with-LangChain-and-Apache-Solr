@@ -74,6 +74,29 @@ rag-system/
 
 ## Installation Guide
 
+###Obtain Input Data
+- Objective: Acquire and prepare a dataset of over 10,000 documents for the RAG system.
+
+- **Wikipedia Dumps**
+Download Wikipedia Dump:
+
+Visit the Wikipedia Dumps page.
+Download the file named enwiki-latest-pages-articles.xml.bz2.
+Extract Text from XML:
+
+Clone the WikiExtractor tool:
+
+```bash
+git clone https://github.com/attardi/wikiextractor.git
+cd wikiextractor
+```
+Run the extractor:
+
+```bash
+python WikiExtractor.py -o ../data/raw ../enwiki-latest-pages-articles.xml.bz2
+This will extract the text content into the data/raw/ directory.
+```
+
 ### Prerequisites
 
 - **Windows 10 or later**

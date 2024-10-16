@@ -1,0 +1,6 @@
+langchain
+openai
+pysolr
+pyspark
+streamlit
+nltk

@@ -246,3 +246,118 @@ rag-system/
    git clone https://github.com/yourusername/rag-system.git
    cd rag-system
 
+### Step 7: Set Up a Virtual Environment
+
+1. **Install `virtualenv` (if not already installed):**
+
+   ```bash
+   pip install virtualenv
+Create a Virtual Environment:
+
+bash
+Copy code
+python -m venv venv
+Activate the Virtual Environment:
+
+bash
+Copy code
+venv\Scripts\activate
+Your command prompt should now show (venv) before the directory path.
+Step 8: Install Required Python Packages
+Upgrade pip:
+
+bash
+Copy code
+python -m pip install --upgrade pip
+Install Packages from requirements.txt:
+
+bash
+Copy code
+pip install -r requirements.txt
+If requirements.txt does not exist yet, create it with the following content:
+
+Copy code
+langchain
+openai
+pysolr
+pyspark
+streamlit
+nltk
+Then run the install command again.
+
+Step 9: Set Up OpenAI API Key
+Obtain API Key:
+
+Sign up or log in to OpenAI.
+Navigate to "View API Keys" and create a new secret key.
+Set Environment Variable:
+
+In Command Prompt, run:
+
+bash
+Copy code
+setx OPENAI_API_KEY "your-openai-api-key"
+Replace "your-openai-api-key" with the actual API key.
+Restart Command Prompt:
+
+Close and reopen Command Prompt to ensure the environment variable is loaded.
+Step 10: Download NLTK Data
+Run Python Interpreter:
+
+bash
+Copy code
+python
+Download Data:
+
+python
+Copy code
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+exit()
+Step 11: Start Apache Solr and Create a Core
+Ensure Solr is Running:
+
+If not running, start Solr:
+
+bash
+Copy code
+cd C:\solr\solr-8.x.x\bin
+solr start
+Create a New Core:
+
+bash
+Copy code
+solr create -c rag_system
+This creates a core named rag_system which we'll use for indexing.
+Step 12: Preprocess and Index Documents
+Prepare Your Dataset:
+
+Place your documents (text files) into the data/ directory within your project.
+Run Preprocessing Script:
+
+Ensure preprocess.py contains the necessary code to clean your data.
+
+Run the script:
+
+bash
+Copy code
+python preprocess.py
+Index Documents into Solr:
+
+Ensure index_solr.py is configured to connect to your Solr core.
+
+Run the script:
+
+bash
+Copy code
+python index_solr.py
+Step 13: Run the Streamlit Application
+Start the Application:
+
+bash
+Copy code
+streamlit run app.py
+Access the Application:
+
+Open a web browser and navigate to http://localhost:8501.
